@@ -18,8 +18,8 @@ function sb_tbfa_setting_field() {
 add_action('sb_admin_init', 'sb_tbfa_setting_field');
 
 function sb_tbfa_bootstrap_callback() {
-    $name = 'sb_tbfa_bootstrap';
-    $options = get_option('sb_options');
+    $name = 'sb_options[tbfa][bootstrap]';
+    $options = SB_Option::get();
     $value = isset($options['tbfa']['bootstrap']) ? $options['tbfa']['bootstrap'] : 1;
     $description = __('You can turn on or turn off Twitter Bootstrap loaded on your site.', 'sb-tbfa');
     $id = 'sb_tbfa_bootstrap';
@@ -27,8 +27,8 @@ function sb_tbfa_bootstrap_callback() {
 }
 
 function sb_tbfa_font_awesome_callback() {
-    $name = 'sb_tbfa_font_awesome';
-    $options = get_option('sb_options');
+    $name = 'sb_options[tbfa][font_awesome]';
+    $options = SB_Option::get();
     $value = isset($options['tbfa']['font_awesome']) ? $options['tbfa']['font_awesome'] : 1;
     $description = __('You can turn on or turn off Font Awesome loaded on your site.', 'sb-tbfa');
     $id = 'sb_tbfa_font_awesome';
