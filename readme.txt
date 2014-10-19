@@ -4,7 +4,7 @@ Donate link: http://hocwp.net/donate/
 Tags: sb, tbfa, bootstrap, sb plugin, sb tbfa, twitter bootstrap, font awesome, sb team
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,16 +30,22 @@ SB TBFA is a plugin that allows to load Twitter Bootstrap and Font Awesome on yo
 
 **Recommended WordPress Plugins**
 
-* [SB Post Widget](https://wordpress.org/plugins/sb-post-widget/)
+* [SB Banner Widget](https://wordpress.org/plugins/sb-banner-widget/)
 * [SB Clean](https://wordpress.org/plugins/sb-clean/)
 * [SB Comment](https://wordpress.org/plugins/sb-comment/)
 * [SB Paginate](https://wordpress.org/plugins/sb-paginate/)
+* [SB Login Page](https://wordpress.org/plugins/sb-login-page/)
+* [SB Post Widget](https://wordpress.org/plugins/sb-post-widget/)
+* [SB Tab Widget](https://wordpress.org/plugins/sb-tab-widget/)
 
 == Installation ==
 
-Upload the SB TBFA plugin to your blog, activate it, then you can use Twitter Bootstrap and Font Awesome on your site.
+Install this plugin from your WordPress site Dashboard or follow these steps below:
 
-1, 2, 3: You're done!
+1. Download plugin from WordPress Plugins directory and extract it.
+1. Upload the `sb-tbfa` folder to the `/wp-content/plugins/` directory.
+1. Activate the SB TBFA plugin through the 'Plugins' menu in WordPress.
+1. Configure the plugin by going to the `SB Options` menu that appears in your admin menu.
 
 == Frequently Asked Questions ==
 
@@ -56,10 +62,10 @@ Please update SB Core before you upgrade SB TBFA to new version.
 == Changelog ==
 
 = 1.0.2 =
-* Update: New options key.
+Update: New options key.
 
 = 1.0.1 =
-* New: Use functions from SB Core plugin.
+New: Use functions from SB Core plugin.
 
 = 1.0.0 =
 First release of this plugin.

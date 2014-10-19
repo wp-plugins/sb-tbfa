@@ -23,7 +23,13 @@ function sb_tbfa_bootstrap_callback() {
     $value = isset($options['tbfa']['bootstrap']) ? $options['tbfa']['bootstrap'] : 1;
     $description = __('You can turn on or turn off Twitter Bootstrap loaded on your site.', 'sb-tbfa');
     $id = 'sb_tbfa_bootstrap';
-    SB_Field::switch_button($id, $name, $value, $description);
+    $args = array(
+        'id' => $id,
+        'name' => $name,
+        'value' => $value,
+        'description' => $description
+    );
+    SB_Field::switch_button($args);
 }
 
 function sb_tbfa_font_awesome_callback() {
@@ -32,7 +38,13 @@ function sb_tbfa_font_awesome_callback() {
     $value = isset($options['tbfa']['font_awesome']) ? $options['tbfa']['font_awesome'] : 1;
     $description = __('You can turn on or turn off Font Awesome loaded on your site.', 'sb-tbfa');
     $id = 'sb_tbfa_font_awesome';
-    SB_Field::switch_button($id, $name, $value, $description);
+    $args = array(
+        'id' => $id,
+        'name' => $name,
+        'value' => $value,
+        'description' => $description
+    );
+    SB_Field::switch_button($args);
 }
 
 function sb_tbfa_sanitize($input) {

@@ -11,8 +11,6 @@ function sb_tbfa_check_core() {
     return $sb_core_installed;
 }
 
-sb_tbfa_check_core();
-
 function sb_tbfa_activation() {
     if(!sb_tbfa_check_core()) {
         wp_die(sprintf(__('You must install and activate plugin %1$s first! Click here to %2$s.', 'sb-tbfa'), '<a href="https://wordpress.org/plugins/sb-core/">SB Core</a>', sprintf('<a href="%1$s">%2$s</a>', admin_url('plugins.php'), __('go back', 'sb-tbfa'))));
@@ -20,6 +18,10 @@ function sb_tbfa_activation() {
     do_action('sb_tbfa_activation');
 }
 register_activation_hook(SB_TBFA_FILE, 'sb_tbfa_activation' );
+
+if(!sb_tbfa_check_core()) {
+    return;
+}
 
 function sb_tbfa_settings_link($links) {
     if(sb_tbfa_check_core()) {
