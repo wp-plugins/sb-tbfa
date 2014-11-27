@@ -1,34 +1,25 @@
 <?php
 function sb_tbfa_check_core() {
-    $user_deactivate_sb_core = false;
-    $sb_core_activated = intval(get_option('sb_core_activated'));
-    if($sb_core_activated == 0) {
-        $caller = get_option('sb_core_deactivated_caller');
-        if('user' == $caller) {
-            $user_deactivate_sb_core = true;
-        }
-    }
-    if(is_admin() && !$user_deactivate_sb_core) {
-        return true;
-    }
     $activated_plugins = get_option('active_plugins');
     $sb_core_installed = in_array('sb-core/sb-core.php', $activated_plugins);
-    if(!$sb_core_installed) {
-        $sb_plugins = array(SB_TBFA_BASENAME);
-        $activated_plugins = get_option('active_plugins');
-        $activated_plugins = array_diff($activated_plugins, $sb_plugins);
-        update_option('active_plugins', $activated_plugins);
-    }
     return $sb_core_installed;
 }
 
 function sb_tbfa_activation() {
-    if(!sb_tbfa_check_core()) {
-        wp_die(sprintf(__('You must install and activate plugin %1$s first! Click here to %2$s.', 'sb-tbfa'), '<a href="https://wordpress.org/plugins/sb-core/">SB Core</a>', sprintf('<a href="%1$s">%2$s</a>', admin_url('plugins.php'), __('go back', 'sb-tbfa'))));
-    }
     do_action('sb_tbfa_activation');
 }
-register_activation_hook(SB_TBFA_FILE, 'sb_tbfa_activation' );
+register_activation_hook(SB_TBFA_FILE, 'sb_tbfa_activation');
+
+function sb_tbfa_check_admin_notices() {
+    if(!sb_tbfa_check_core()) {
+        unset($_GET['activate']);
+        printf('<div class="error"><p><strong>' . __('Error', 'sb-tbfa') . ':</strong> ' . __('The plugin with name %1$s has been deactivated because of missing %2$s plugin', 'sb-tbfa') . '.</p></div>', '<strong>SB TBFA</strong>', sprintf('<a target="_blank" href="%s" style="text-decoration: none">SB Core</a>', 'https://wordpress.org/plugins/sb-core/'));
+        deactivate_plugins(SB_TBFA_BASENAME);
+    }
+}
+if(!empty($GLOBALS['pagenow']) && 'plugins.php' === $GLOBALS['pagenow']) {
+    add_action('admin_notices', 'sb_tbfa_check_admin_notices', 0);
+}
 
 if(!sb_tbfa_check_core()) {
     return;

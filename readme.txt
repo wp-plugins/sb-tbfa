@@ -4,7 +4,7 @@ Donate link: http://hocwp.net/donate/
 Tags: sb, tbfa, bootstrap, sb plugin, sb tbfa, twitter bootstrap, font awesome, sb team
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ SB TBFA is a plugin that allows to load Twitter Bootstrap and Font Awesome on yo
 
 **Current Versions**
 
-* Bootstrap: 3.2.0
+* Bootstrap: 3.3.1
 * Font Awesome: 4.2.0
 
 **Translations**
@@ -60,6 +60,10 @@ Please visit [homepage](http://hocwp.net) for more details.
 Please update SB Core before you upgrade SB TBFA to new version.
 
 == Changelog ==
+
+= 1.0.5 =
+* Update to Twitter Bootstrap version 3.3.1
+* Update check core functions.
 
 = 1.0.4 =
 Update check core function.
