@@ -18,7 +18,7 @@ function sb_tbfa_activation() {
 register_activation_hook(SB_TBFA_FILE, 'sb_tbfa_activation');
 
 function sb_tbfa_not_valid_core_message() {
-    return sprintf('<div class="error"><p><strong>' . __('Error', 'sb-theme') . ':</strong> ' . __('SB TBFA only run with %1$s, please update it via updates page or download it manually.', 'sb-theme') . '.</p></div>', sprintf('<a target="_blank" href="%1$s" style="text-decoration: none">SB Core version %2$s</a>', 'https://wordpress.org/plugins/sb-core/', SB_TBFA_USE_CORE_VERSION));
+    return sprintf('<div class="error"><p><strong>' . __('Error', 'sb-tbfa') . ':</strong> ' . __('SB TBFA only run with %1$s, please update it via updates page or download it manually.', 'sb-tbfa') . '.</p></div>', sprintf('<a target="_blank" href="%1$s" style="text-decoration: none">SB Core version %2$s</a>', 'https://wordpress.org/plugins/sb-core/', SB_TBFA_USE_CORE_VERSION));
 }
 
 function sb_tbfa_check_admin_notices() {
