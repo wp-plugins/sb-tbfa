@@ -5,8 +5,26 @@ function sb_tbfa_check_core() {
     return $sb_core_installed;
 }
 
+function sb_tbfa_get_plugin_data($path) {
+    if(!function_exists('get_plugins')) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+    if(!file_exists($path)) {
+        return array();
+    }
+    $data = get_plugin_data($path);
+    return $data;
+}
+
+function sb_tbfa_get_plugin_sb_core_data() {
+    $data = sb_tbfa_get_plugin_data(ABSPATH . 'wp-content/plugins/sb-core/sb-core.php');
+    return $data;
+}
+
 function sb_tbfa_is_core_valid() {
-    if(defined('SB_CORE_VERSION') && version_compare(SB_CORE_VERSION, SB_TBFA_USE_CORE_VERSION, '>=')) {
+    $data = sb_tbfa_get_plugin_sb_core_data();
+    $current_core_version = isset($data['Version']) ? $data['Version'] : '';
+    if(version_compare($current_core_version, SB_TBFA_USE_CORE_VERSION, '>=')) {
         return true;
     }
     return false;
