@@ -4,11 +4,15 @@ Plugin Name: SB TBFA
 Plugin URI: http://hocwp.net/
 Description: SB TBFA is a plugin that allows to load Twitter Bootstrap and Font Awesome on your WordPress site.
 Author: SB Team
-Version: 1.0.9
+Version: 1.1.0
 Author URI: http://hocwp.net/
 Text Domain: sb-tbfa
 Domain Path: /languages/
 */
+
+if(defined('SB_THEME_VERSION') && version_compare(SB_THEME_VERSION, '1.7.0', '>=')) {
+    return;
+}
 
 define('SB_TBFA_USE_CORE_VERSION', '1.5.9');
 
